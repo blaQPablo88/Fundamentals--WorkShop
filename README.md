@@ -68,6 +68,6 @@ The project includes test cases to verify its functionality using the `unittest`
 ```plaintext
 student-management-system/
 │
-├── [student_management_system.py]# Main script with the student management logic
-├── [test_student_management.py# Unit tests for the project
-└── [README.md]# This README file
+├── [student_management_system.py]  # Main script with the student management logic
+├── [test_student_management.py]    # Unit tests for the project
+└── [README.md]                     # This README file
