@@ -3,6 +3,8 @@
 # Data structure to hold student information (list of dictionaries)
 # initalize a student variable with an empty list 
 
+students = {}
+student = []
 # Function to add a new student
 def add_student():
     """
@@ -18,18 +20,15 @@ def add_student():
     
     # Create a dictionary for the student using the input values
     # Example: {'id': student_id, 'name': name, 'grade': grade}
-    student = {}
-    student['id'] = id_input
-    student['name'] = name_input
-    student['grade'] = grade_input
-    print(student)
+    students['id'] = id_input
+    students['name'] = name_input
+    students['grade'] = grade_input
+    print(students)
     
     # Add the student dictionary to the students list
     # Hint: Use the append() method on the students list
-    students = []
-    print(len(students))
-    if student:
-        students.append(student)
+    if students:
+        student.append(students)
         print('Successfully added student')
     else:
         print('Error adding student')
@@ -43,7 +42,14 @@ def update_student_grade():
     and updates their grade if found.
     """
     # Get the student ID to update from user input
+    print(students)
+    user_id_input = input('enter your student number: ')
+    if user_id_input in students.values():
+        print(student)
+    else:
+        print('NOOOO')
     
+
     # Loop through the students list to find the student with the given ID
     # Hint: Use a for loop to iterate over students
     
@@ -72,33 +78,33 @@ def main_menu():
     """
     Displays the main menu and calls the appropriate functions based on user input.
     """
-    # while True:
-    # Print the menu options
-    print("\nStudent Management System")
-    print("1. Add Student")
-    print("2. Update Student Grade")
-    print("3. Display All Students")
-    print("4. Exit")
+    while True:
+        # Print the menu options
+        print("\nStudent Management System")
+        print("1. Add Student")
+        print("2. Update Student Grade")
+        print("3. Display All Students")
+        print("4. Exit")
+        
+        # Get the user's choice using input()
+        user_input = input('Select an option: ')
     
-    # Get the user's choice using input()
-    user_input = input('Select an option: ')
-    
-    # Use if-elif-else statements to call the appropriate function based on the user's choice
-    # Hint: Call add_student(), update_student_grade(), display_students(), or exit the loop
-    if user_input.isdigit():
-        if user_input == '1':
-            add_student()
-        elif user_input == '2':
-            update_student_grade()
-        elif user_input == '3':
-            display_students()
-        elif user_input == '4':
-            exit()
+        # Use if-elif-else statements to call the appropriate function based on the user's choice
+        # Hint: Call add_student(), update_student_grade(), display_students(), or exit the loop
+        if user_input.isdigit():
+            if user_input == '1':
+                add_student()
+            elif user_input == '2':
+                update_student_grade()
+            elif user_input == '3':
+                display_students()
+            elif user_input == '4':
+                exit()
+            else:
+                while user_input < '1' or user_input > '4':
+                    user_input = input('Invalid Selection. Select an option (1-4): ')
         else:
-            while user_input < '1' or user_input > '4':
-                user_input = input('Invalid Selection. Select an option (1-4): ')
-    else:
-        print('Invalid choice')
+            print('Invalid choice')
 
         
         # If the choice is not between 1 and 4, print an "Invalid choice" message
